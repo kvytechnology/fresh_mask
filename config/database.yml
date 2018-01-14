@@ -65,5 +65,5 @@ test:
 production:
   <<: *default
   database: fresh_mask_production
-  username: fresh_mask
+  username: deploy
   password: <%= ENV['FRESHMASK_DATABASE_PASSWORD'] %>
