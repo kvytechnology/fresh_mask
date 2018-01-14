@@ -41,6 +41,27 @@ Text Domain  : progression
 * Component module
 */
 /* TYPOGRAPHY */
+@font-face {
+    font-family: "aqua icon";
+    src: asset-url("aqua.eot");
+    src: asset-url("aqua.eot") format("embedded-opentype"),
+          asset-url("aqua.woff") format("woff"),
+          asset-url("aqua.ttf") format("truetype"),
+          asset-url("aqua.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: asset-url("JosefinSans-Regular.ttf"),
+        asset-url("JosefinSans-Regular.woff") format("woff"),
+        asset-url("JosefinSans-Regular.ttf") format("truetype"),
+        asset-url("JosefinSans-Regular.svg#aqua") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 600;
