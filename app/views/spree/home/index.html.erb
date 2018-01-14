@@ -1,13 +1,8 @@
-<% @body_id = 'home-page' %>
-<% content_for :sidebar do %>
-  <div data-hook="homepage_sidebar_navigation">
-    <%= render partial: 'spree/shared/taxonomies' %>
-  </div>
-<% end %>
+<%= render 'spree/shared/nav' %>
 
-<div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
-  <% end %>
+<div id="ro-main" class="ro-main clearfix">
+  <%= render 'spree/home/header' %>
+  <%= render 'spree/home/content' %>
+  <%= render 'spree/home/footer' %>
+  <div id="ro-backtop"><i class="icon-up"></i></div>
 </div>
-
