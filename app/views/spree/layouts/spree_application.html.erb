@@ -6,6 +6,9 @@
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
   <head data-hook="inside_head">
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= canonical_tag(current_store.url) %>
+    <%= render 'spree/shared/paths' %>
+    <%= javascript_include_tag 'spree/frontend/all' %>
   </head>
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
     <%= render partial: 'spree/shared/google_analytics.js' %>
