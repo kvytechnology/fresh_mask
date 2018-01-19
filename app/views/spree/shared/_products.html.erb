@@ -27,7 +27,3 @@
     <%= render partial: 'spree/products/product', collection: products, locals: { taxon: @taxon } %>
   </div>
 <% end %>
-
-<% if products.respond_to?(:total_pages) %>
-  <%= paginate products, theme: 'twitter-bootstrap-3' %>
-<% end %>

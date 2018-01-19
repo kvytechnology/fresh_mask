@@ -1,27 +1,21 @@
-<% if "spree/products" == params[:controller] && @taxon || @taxonomies.present? %>
-  <% content_for :sidebar do %>
-    <div data-hook="homepage_sidebar_navigation">
-      <% if "spree/products" == params[:controller] && @taxon %>
-        <%= render partial: 'spree/shared/filters' %>
-      <% else %>
-        <%= render partial: 'spree/shared/taxonomies' %>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
+<div class="ro-section">
+  <div class="container" style="padding-top: 20px;">
 
-<% if params[:keywords] %>
-  <div data-hook="search_results">
-    <% if @products.empty? %>
-      <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
+    <% if params[:keywords] %>
+      <div data-hook="search_results">
+        <% if @products.empty? %>
+          <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
+        <% else %>
+          <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+        <% end %>
+      </div>
     <% else %>
-      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+      <div data-hook="homepage_products">
+        <% cache(cache_key_for_products) do %>
+          <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+        <% end %>
+      </div>
     <% end %>
   </div>
-<% else %>
-  <div data-hook="homepage_products">
-    <% cache(cache_key_for_products) do %>
-      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-    <% end %>
-  </div>
-<% end %>
+</div>
+<%= render 'spree/home/footer' %>
